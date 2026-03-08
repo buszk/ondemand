@@ -82,5 +82,8 @@ RUN npm install -g @anthropic-ai/claude-code happy-coder
 # Create Claude settings directory
 RUN mkdir -p /home/developer/.claude && chown -R developer:developer /home/developer/.claude
 
-# Entrypoint: write settings at runtime and start happy
-ENTRYPOINT /bin/bash -c 'if [ -n "$CLAUDE_SETTINGS_JSON" ]; then echo "$CLAUDE_SETTINGS_JSON" > /home/developer/.claude/settings.json; fi && su developer -c "happy-coder"
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
