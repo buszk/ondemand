@@ -35,14 +35,8 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     mysql-client \
     redis-tools \
-    # Cloud CLI tools
-    awscli \
-    google-cloud-cli \
-    azure-cli \
     # Container tools
     docker.io \
-    kubectl \
-    helm \
     # Text editors and utilities
     vim \
     nano \
