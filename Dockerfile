@@ -20,9 +20,6 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-venv \
-    # Languages - Node.js
-    nodejs \
-    npm \
     # Languages - Go
     golang \
     # Languages - Rust
@@ -57,6 +54,11 @@ RUN apt-get update && apt-get install -y \
     locales \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js 20.x
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set locale
 RUN locale-gen en_US.UTF-8
