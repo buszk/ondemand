@@ -88,4 +88,7 @@ RUN mkdir -p /home/developer/.claude && chown -R developer:developer /home/devel
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+# Expose SSH port
+EXPOSE 22
+
 ENTRYPOINT ["/entrypoint.sh"]
