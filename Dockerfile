@@ -78,8 +78,8 @@ RUN echo 'developer ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 # SSH requires this
 RUN echo "PermitUserEnvironment no" >> /etc/ssh/sshd_config
 
-# Install Claude Code CLI and happy-coder
-RUN npm install -g @anthropic-ai/claude-code happy-coder
+# Install Claude Code CLI, Codex CLI, and happy-coder
+RUN npm install -g @anthropic-ai/claude-code @openai/codex happy-coder
 
 # Create Claude settings directory
 RUN mkdir -p /home/developer/.claude && chown -R developer:developer /home/developer/.claude
